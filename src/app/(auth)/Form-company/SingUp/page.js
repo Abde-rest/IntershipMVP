@@ -4,7 +4,7 @@ import IntersipImage from "@/public/Intershipe/Intership.jpg";
 export default function page() {
   return (
     <div className="grid grid-cols-2">
-      <div className="bg-black/20 w-full h-screen  ">
+      <div className="bg-black/20 w-full h-screen  hidden md:block">
         <Image className="w-full h-full" src={IntersipImage} alt="Intership" />
         {/* Text  */}
       </div>
