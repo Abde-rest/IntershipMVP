@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div>
-      <section className="bg-white dark:bg-gray-900 h-screen flex items-center justify-center">
+      <section className="bg-white h-screen flex items-center justify-center">
         <div className="py-8 px-4 mx-auto  lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-sm text-center">
-            <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9x text-white">
+            <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9x text-black">
               404
             </h1>
             <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
@@ -18,8 +18,8 @@ export default function NotFound() {
             </p>
             <Link
               href="/"
-              className="p-2 bg-white/10 text-white rounded font-bold text-sm">
-              Back to Homepage
+              className="p-2 bg-gray-800 text-white rounded font-bold text-sm">
+              Back to Home page
             </Link>
           </div>
         </div>
