@@ -1,0 +1,16 @@
+{
+  "name": "Lms Website ",
+  "short_name": "DoKya",
+  "description": "E-lernning Platfome That Give Lesson  in Deffernt Nevaux ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FCFAEE",
+  "icons": [
+    {
+      "src": "./UserInterface/user.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
