@@ -30,13 +30,13 @@ const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
           })}
           <li>
             <NavLink
-              href="/get-started"
+              href="/Form-company/SingUp"
               className=" font-medium flex  mb-2 hover:bg-slate-100 items-center gap-2 text-sm text-black ">
               SingUp Company
               <FaArrowRight />
             </NavLink>{" "}
             <NavLink
-              href="/get-started"
+              href="/SignUp"
               className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline">
               SingUp
             </NavLink>{" "}
