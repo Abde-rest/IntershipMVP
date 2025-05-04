@@ -5,13 +5,12 @@ import Footer from "@/components/ui/Footer";
 import FooterCTA from "@/components/ui/FooterCTA";
 import Hero from "@/components/ui/Hero";
 import LogoGrid from "@/components/ui/LogoGrid";
-import Navbar from "@/components/ui/Navbar";
 import Testimonials from "@/components/ui/Testimonials";
 import ToolKit from "@/components/ui/ToolKit";
 import CategoriesGrid from "./Componet/Categores/CategoriesGrid";
+import Navbar from "@/components/ui/Navbar";
 
 export default function Home() {
-  
   return (
     <div className="min-h-screen container px-5 m-auto  overflow-hidden">
       {/* Hero Section */}

@@ -8,8 +8,8 @@ import { getServerSession } from "next-auth";
 import { authoption } from "@/app/api/auth/[...nextauth]/route";
 
 const Navbar = async () => {
-  const { user } = await getServerSession(authoption);
-  console.log(user);
+  const session = await getServerSession(authoption);
+  const user = session?.user;
   // {
   //   name: 'عبد الباقي الأشهبي',
   //   email: 'abdethomes20048@gmail.com',
@@ -44,24 +44,8 @@ const Navbar = async () => {
               })}
 
               <li className="flex gap-2">
-                {user ? (
-                  <NavLink
-                    href={`${
-                      user.role === "user"
-                        ? "/Dahborde_user"
-                        : "/Dahborde_company/JopIntership"
-                    }`}
-                    className=" font-medium flex  items-center gap-2 text-sm text-white
-                    
-                     bg-gray-800 hover:bg-gray-600 active:bg-gray-900 
-                    
-                    ">
-                    Dahborde
-                    <FaArrowRight />
-                  </NavLink>
-                ) : (
+                {!user ? (
                   <>
-                    {" "}
                     <NavLink
                       href="/Form-company/SingUp"
                       className=" font-medium flex  hover:bg-slate-100 items-center gap-2 text-sm text-black ">
@@ -74,6 +58,21 @@ const Navbar = async () => {
                       SingUp
                     </NavLink>{" "}
                   </>
+                ) : (
+                  <NavLink
+                    href={`${
+                      user.role === "user"
+                        ? "/Dahborde_user"
+                        : "/Dahborde_company/JopIntership"
+                    }`}
+                    className=" font-medium flex  items-center gap-2 text-sm text-white
+
+ bg-gray-800 hover:bg-gray-600 active:bg-gray-900 
+
+">
+                    Dahborde
+                    <FaArrowRight />
+                  </NavLink>
                 )}
               </li>
             </ul>
