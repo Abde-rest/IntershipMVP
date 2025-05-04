@@ -39,7 +39,7 @@ const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
               href="/SignUp"
               className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline">
               SingUp
-            </NavLink>{" "}
+            </NavLink>
           </li>
         </div>
       </ul>
