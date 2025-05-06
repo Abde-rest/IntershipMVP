@@ -26,7 +26,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         // ${geistSans.variable} ${geistMono.variable}
-        className={` antialiased`}>
+        className={` antialiased
+         min-h-screen container
+        `}>
         {/* <SessionProvider> */}
 
         {children}

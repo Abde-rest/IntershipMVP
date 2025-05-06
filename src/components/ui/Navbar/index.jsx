@@ -6,7 +6,7 @@ import MenuPhoneUi from "@/app/(auth)/Comopont/MenuPoneUi.js/MenuPhoneUi";
 import { navigation } from "@/Data/ListWilaya";
 import { getServerSession } from "next-auth";
 import { authoption } from "@/app/api/auth/[...nextauth]/route";
-
+import "@/app/globals.css";
 const Navbar = async () => {
   const session = await getServerSession(authoption);
   const user = session?.user;
@@ -16,10 +16,10 @@ const Navbar = async () => {
   //   image: 'https://lh3.googleusercontent.com/a/ACg8ocKCBqQ_I837viWtpExcojqEJrEDv_YiqjIyqYByJ4fBMMVXphgv=s96-c',
   //   id: '67ffe5757273016d637fa00d',
   //   role: 'user'  or Company
-  // }
+
   return (
-    <header className="flex items-center justify-between">
-      <nav className={`bg-white w-full  md:text-sm  `}>
+    <header className={`flex items-center justify-between px-5`}>
+      <nav className={` w-full  md:text-sm  `}>
         <div className="flex  justify-between items-center mx-auto md:flex">
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Brand />

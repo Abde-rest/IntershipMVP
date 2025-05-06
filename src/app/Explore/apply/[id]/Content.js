@@ -13,7 +13,6 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import SuccessModal from "../../Component/Modal/SuccessModal";
-import { FileUploaderRegular } from "@uploadcare/react-uploader";
 import "@uploadcare/react-uploader/core.css";
 export default function ApplyPage({ id, data }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -185,7 +184,7 @@ export default function ApplyPage({ id, data }) {
         }
       );
       const resulte = await response.json();
-
+      console.log(resulte);
       if (response.ok) {
         setShowSuccessModal(true);
       }

@@ -8,7 +8,7 @@ import { IoCloseSharp } from "react-icons/io5";
 const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
   return (
     <div
-      className={` top-0 text-center right-0 w-full  ${
+      className={` top-0 text-center right-0 w-full z-50  ${
         OpenMenu ? "fixed" : "hidden"
       }`}>
       <div

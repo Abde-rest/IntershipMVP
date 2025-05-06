@@ -8,8 +8,9 @@ const FilterDrobDowen = () => {
     <div className="relative">
       <button
         onClick={() => setIsFilterOpen(!isFilterOpen)}
-        className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none">
-        Filter: {filter} ▼
+        className="w-full flex items-center  sm:w-auto md:w-auto px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none">
+        Filter:
+        <span> {filter} ▼</span>
       </button>
       {isFilterOpen && (
         <div className="absolute z-10 mt-1 w-full bg-white shadow-lg rounded-md border border-gray-200">

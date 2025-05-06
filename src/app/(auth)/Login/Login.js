@@ -89,9 +89,9 @@ const Login = () => {
           className="outline-none text-right rtl  placeholder:text-black/40 border-black/50 border-2 border-r-0 rounded-l-md   block flex-1 min-w-0 w-full text-sm p-2.5 bg-primary"
           placeholder="example@gmail.com"
         />
-        <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-primaryV2 ">
+        <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-[#9049D4] ">
           <svg
-            className="w-4 h-4 text-black "
+            className="w-4 h-4 text-white "
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -168,9 +168,9 @@ const Login = () => {
           />
         </div>
 
-        <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-primaryV2 ">
+        <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-[#9049D4] ">
           <svg
-            className="w-4 h-4 text-black "
+            className="w-4 h-4 text-white "
             aria-hidden="true"
             viewBox="0 0 24 24"
             fill="currentColor"
@@ -189,7 +189,7 @@ const Login = () => {
       <button
         type="submit"
         // className="  py-2 px-4 rounded-md  cursor-pointer  block mt-6 mb-0 bg-primaryV2 hover:bg-primaryV2/80"
-        className="w-full  bg-primaryV2 text-black py-2 mt-3 rounded-md hover:bg-primaryV2/80">
+        className="w-full  bg-[#9049D4] text-white py-2 mt-3 rounded-md hover:bg-[#9049D4]/80">
         {SpinnerisShow ? (
           <Spinner className={"w-4 h-4"} />
         ) : (
@@ -199,7 +199,7 @@ const Login = () => {
 
       <div className="text-center text-sm text-[#33445799] mt-5">
         ليس لديك حساب ؟
-        <Link href="/SignUp" className="text-[#f7bc4b] hover:underline">
+        <Link href="/SignUp" className="text-[#9049D4] hover:underline">
           أنشاء حساب
         </Link>
       </div>

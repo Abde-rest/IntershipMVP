@@ -59,6 +59,7 @@ export const wilayas = [
   { code: "58", name: "المنيعة" },
 ];
 export const navigation = [
+  { title: "Home", path: "/" },
   { title: "Explore", path: "/Explore" },
   { title: "Contact", path: "#toolkit" },
   { title: "Testimonials", path: "#testimonials" },

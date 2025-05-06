@@ -5,6 +5,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 import Spinner from "@/app/Componet/spinnerUi/spinner";
+import { FaVoicemail } from "react-icons/fa";
+import { MdOutlineMail } from "react-icons/md";
 
 // Probem Her Validation Email Is not strong
 
@@ -97,7 +99,7 @@ const SingUp = () => {
         email: DataUserSingUp.email,
         password: DataUserSingUp.password,
         userType: "user",
-        
+
         redirect: true, //  إعادة التوجيه التلقائي
         callbackUrl: "/Explore", // وجهة إعادة التوجيه الى صفحة explore
       });
@@ -160,9 +162,9 @@ const SingUp = () => {
             className="outline-none text-right rtl  placeholder:text-black/40 border-black/50 border-2 border-r-0 rounded-l-md    flex-1 min-w-0  text-sm p-2.5 bg-primary"
             placeholder="محمد علي "
           />
-          <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-primaryV2/80 ">
+          <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-[#9049D4] ">
             <svg
-              className="w-4 h-4 text-black "
+              className="w-4 h-4 text-white "
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -213,26 +215,8 @@ const SingUp = () => {
             className="outline-none text-right rtl  placeholder:text-black/40 border-black/50 border-2 border-r-0 rounded-l-md    flex-1 min-w-0  text-sm p-2.5 bg-primary"
             placeholder="example@gmail.com"
           />
-          <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-primaryV2/80 ">
-            <svg
-              className="w-4 h-4 text-black "
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                strokeLinecap="round"
-                strokeLinejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z"
-                  fill="#080341"></path>{" "}
-              </g>
-            </svg>
+          <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-[#9049D4] ">
+            <MdOutlineMail className="text-white" />
           </span>
         </div>
         {errors.email && (
@@ -322,9 +306,9 @@ const SingUp = () => {
               placeholder="********"
             />
           </div>
-          <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-primaryV2/80 ">
+          <span className="inline-flex items-center px-3 text-sm  border-black/50 border-2 border-l-0   rounded-r-lg  bg-[#9049D4] ">
             <svg
-              className="w-4 h-4 text-black "
+              className="w-4 h-4 text-white "
               aria-hidden="true"
               viewBox="0 0 24 24"
               fill="currentColor"
@@ -348,8 +332,7 @@ const SingUp = () => {
 
       <button
         type="submit"
-        // className="  py-2 px-4 rounded-md  cursor-pointer  block mt-6 mb-0 hover:bg-primaryV2/70 bg-primaryV2 "
-        className="w-full  bg-primaryV2 text-black py-2 mt-3 rounded-md hover:bg-primaryV2/70">
+        className="w-full  py-2 mt-3 rounded-md bg-[#9049D4] text-white">
         {SpinnerisShow ? (
           <Spinner className={"w-4 h-4"} />
         ) : (
@@ -359,7 +342,7 @@ const SingUp = () => {
 
       <div className="text-center text-sm text-[#33445799] mt-5">
         لديك حساب بالفعل؟{" "}
-        <Link href="/Login" className="text-[#f7bc4b] hover:underline">
+        <Link href="/Login" className="text-[#9049D4] hover:underline">
           تسجيل الدخول
         </Link>
       </div>

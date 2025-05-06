@@ -6,6 +6,8 @@ body {
   font-family: "Cairo", sans-serif;
 }
 
+
+
 /* spiiner  */
 
 .loader {
@@ -28,9 +30,6 @@ body {
   }
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
