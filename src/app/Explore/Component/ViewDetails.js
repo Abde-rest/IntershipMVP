@@ -1,4 +1,3 @@
-import React from "react";
 import { LuFileSearch } from "react-icons/lu";
 
 const ViewDetails = ({

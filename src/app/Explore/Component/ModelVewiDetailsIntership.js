@@ -31,13 +31,13 @@ const ModelVewiDetailsIntership = ({
           <div className="flex flex-col md:flex-row h-full">
             {/* Image Section - Left side on desktop, top on mobile */}
             <div className="md:w-2/5 relative h-64 md:h-auto bg-blue-100">
-              <Image
+              {/* <Image
                 src="/placeholder.svg?height=600&width=400"
                 alt="Internship opportunity"
                 layout="fill"
                 objectFit="cover"
                 className="object-cover"
-              />
+              /> */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
                 <h2 className="text-2xl font-bold text-white">
                   {/* Software Development Internship */}
@@ -155,7 +155,7 @@ const ModelVewiDetailsIntership = ({
                             Company Name
                           </p>
                           <p className="text-sm text-gray-600">
-                            {DataVewiIntership.companyID.company_name}
+                            {DataVewiIntership.companyID?.company_name}
                           </p>
                         </div>
                       </div>
@@ -167,7 +167,7 @@ const ModelVewiDetailsIntership = ({
                             Phone Number
                           </p>
                           <p className="text-sm text-gray-600">
-                            {DataVewiIntership.companyID.phone}
+                            {DataVewiIntership.companyID?.phone}
                           </p>
                         </div>
                       </div>
@@ -177,7 +177,7 @@ const ModelVewiDetailsIntership = ({
                         <div>
                           <p className="font-medium text-gray-800">City</p>
                           <p className="text-sm text-gray-600">
-                            {DataVewiIntership.companyID.location.city}
+                            {DataVewiIntership.companyID?.location.city}
                           </p>
                         </div>
                       </div>
@@ -187,7 +187,7 @@ const ModelVewiDetailsIntership = ({
                         <div>
                           <p className="font-medium text-gray-800">Address</p>
                           <p className="text-sm text-gray-600">
-                            {DataVewiIntership.companyID.location.address}
+                            {DataVewiIntership.companyID?.location.address}
                           </p>
                         </div>
                       </div>
@@ -197,7 +197,7 @@ const ModelVewiDetailsIntership = ({
               </div>
 
               {/* Apply Button - Fixed outside scrolling area */}
-              <div className="flex-shrink-0 bg-white py-4 px-6 border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+              <div className=" bg-white py-4 px-6 border-t border-gray-200 w-full text-center m-auto">
                 <ApplyButton />
               </div>
             </div>
