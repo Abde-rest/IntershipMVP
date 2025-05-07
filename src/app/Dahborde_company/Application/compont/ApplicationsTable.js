@@ -3,12 +3,14 @@ import { FaLinkedin } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import Accept_Application from "../action_Appliction/Accept_Application";
 import Reject_Application from "../action_Appliction/Reject_Application";
+import { ToastContainer } from "react-toastify";
 export default function resulteTable({ data, error }) {
   return (
     <>
       {error && <div>{error}</div>}
       {data && (
         <div className="overflow-x-auto rounded-lg border  border-gray-200   ">
+          <ToastContainer />
           <table className="w-full divide-y divide-gray-200 ">
             <thead className="bg-gray-50 sticky top-0">
               <tr>

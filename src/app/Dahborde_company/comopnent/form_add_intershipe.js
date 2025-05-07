@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Footer_Form_Add_Intership from "./Footer_Form_Add_Intership";
 import { mutate } from "swr";
+import { toast } from "react-toastify";
 const Form_add_intershipe = ({ setIsAddModalOpen }) => {
   // Data Intership
 
@@ -20,25 +21,44 @@ const Form_add_intershipe = ({ setIsAddModalOpen }) => {
 
   // Handle adding a new internship
   const handleAddInternship = async (e) => {
-    e.preventDefault();
-    setIsshowSpinner(true);
-    // fetch  api to add Data in Database
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/AddIntership`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newInternship),
-      }
-    );
-
-    const result = await res.json();
-    if (res.ok) {
-      setIsAddModalOpen(false);
-      // ✅ تحديث الكاش مباشرة بدون إعادة تحميل  تديث Swr
-      mutate(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllDataIntership_Dahborde_Company`
+    try {
+      e.preventDefault();
+      setIsshowSpinner(true);
+      // fetch  api to add Data in Database
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/AddIntership`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newInternship),
+        }
       );
+
+      const result = await res.json();
+      if (res.ok) {
+        setIsAddModalOpen(false);
+        toast.success("Internship updated successfully!", {
+          pauseOnHover: false,
+          autoClose: 1000,
+        });
+        // ✅ تحديث الكاش مباشرة بدون إعادة تحميل  تديث Swr
+        mutate(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllDataIntership_Dahborde_Company`
+        );
+      } else {
+        toast.warn(result.messgae, {
+          pauseOnHover: false,
+          autoClose: 1000,
+        });
+      }
+    } catch (error) {
+      console.error("Error adding internship:", error);
+      toast.error("Failed to add internship. Please try again.", {
+        pauseOnHover: false,
+        autoClose: 1000,
+      });
+    } finally {
+      setIsshowSpinner(false);
     }
   };
 

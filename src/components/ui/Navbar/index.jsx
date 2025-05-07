@@ -22,11 +22,11 @@ const Navbar = async () => {
 
   return (
     <header className={`flex items-center justify-between px-5 `}>
-      <nav className={`w-full md:text-sm`}>
-        <div className="flex justify-between items-center mx-auto md:flex">
+      <nav className={` w-full  md:text-sm  `}>
+        <div className="flex  justify-between items-center mx-auto md:flex">
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Brand />
-
+            <SinOutBtn />
             <div className="md:hidden">
               <button
                 role="button"
@@ -34,8 +34,8 @@ const Navbar = async () => {
                 className="text-gray-500 hover:text-gray-800"></button>
             </div>
           </div>
-          <div className={`pb-3 mt-8 hidden md:pb-0 md:mt-0 md:block`}>
-            <ul className="text-gray-700 flex gap-2 items-center justify-end md:flex md:text-gray-600 md:font-medium">
+          <div className={` pb-3 mt-8  hidden md:pb-0 md:mt-0 md:block `}>
+            <ul className="text-gray-700 flex gap-2 items-center justify-end  md:flex   md:text-gray-600 md:font-medium">
               {navigation.map((item, idx) => {
                 return (
                   <li key={idx} className="duration-150 hover:text-gray-900">

@@ -73,12 +73,10 @@ const Sidbar = ({ toggleSidebar, isSidebarOpen }) => {
           </li>
         </Link>
 
-        <Link href={"/"}>
-          <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex items-center gap-1">
-            <FaSignOutAlt size={20} />
-            <SinOutBtn />
-          </li>
-        </Link>
+        <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex items-center gap-1">
+          <FaSignOutAlt size={20} />
+          <SinOutBtn />
+        </li>
       </ul>
     </aside>
   );

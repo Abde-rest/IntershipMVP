@@ -42,16 +42,27 @@ export async function POST(request) {
     //   );
     //   // return new Response.redirect(/"/");
     // }
-
-    return new Response(
-      JSON.stringify({
-        messgae: "تم تنفيذ الاجراء ",
-        status: false,
-      }),
-      {
-        status: 201,
-      }
-    );
+    if (Application) {
+      return new Response(
+        JSON.stringify({
+          messgae: "تم تنفيذ الاجراء ",
+          status: false,
+        }),
+        {
+          status: 201,
+        }
+      );
+    } else {
+      return new Response(
+        JSON.stringify({
+          messgae: "لم يتم تنفيذ الاجراء ",
+          status: false,
+        }),
+        {
+          status: 201,
+        }
+      );
+    }
   } catch (error) {
     console.log(error);
     return new Response(
