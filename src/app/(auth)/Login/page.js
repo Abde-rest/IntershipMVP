@@ -12,7 +12,7 @@ const page = async () => {
               <div className="relative space-y-6 text-center">
                 <div className="w-full h-64 bg-[#f7bc4b10] rounded-2xl flex items-center justify-center">
                   <svg
-                    className="w-40 h-40 text-[#f7bc4b]"
+                    className="w-40 h-40 text-[#9049D4]"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"

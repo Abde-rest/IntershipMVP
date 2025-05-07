@@ -11,6 +11,7 @@ import { PiBagSimpleFill } from "react-icons/pi";
 import { MdSpaceDashboard } from "react-icons/md";
 import { IoIosSettings } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import SinOutBtn from "../btn/SinOutBtn";
 
 const Sidbar = ({ toggleSidebar, isSidebarOpen }) => {
   const pathname = usePathname();
@@ -75,7 +76,7 @@ const Sidbar = ({ toggleSidebar, isSidebarOpen }) => {
         <Link href={"/"}>
           <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex items-center gap-1">
             <FaSignOutAlt size={20} />
-            SingOut
+            <SinOutBtn />
           </li>
         </Link>
       </ul>

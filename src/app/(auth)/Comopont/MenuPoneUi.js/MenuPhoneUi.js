@@ -7,7 +7,6 @@ const MenuPhoneUi = () => {
   const [OpenMenu, setOpenMenu] = useState(false);
   return (
     <div>
-      {" "}
       <div className={`md:hidden`}>
         <LuSquareMenu
           onClick={() => setOpenMenu(true)}
@@ -15,10 +14,7 @@ const MenuPhoneUi = () => {
           className={`cursor-pointer`}
         />
       </div>
-      <MenuPhone
-        setOpenMenu={setOpenMenu}
-        OpenMenu={OpenMenu}
-      />
+      <MenuPhone setOpenMenu={setOpenMenu} OpenMenu={OpenMenu} />
     </div>
   );
 };

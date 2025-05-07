@@ -14,13 +14,10 @@ import {
 } from "react-icons/fa";
 import SuccessModal from "../../Component/Modal/SuccessModal";
 import "@uploadcare/react-uploader/core.css";
+import { toast, ToastContainer } from "react-toastify";
 export default function ApplyPage({ id, data }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [MessgaeNothitiaction, setMessgaeNothitiaction] = useState({
-    messgae: "",
-    // status: null,
-  });
 
   const [formErrors, setFormErrors] = useState({});
 
@@ -185,17 +182,20 @@ export default function ApplyPage({ id, data }) {
       );
       const resulte = await response.json();
       console.log(resulte);
+
       if (response.ok) {
         setShowSuccessModal(true);
+      } else {
+        toast.warn(resulte.messgae, {
+          pauseOnHover: false,
+        });
       }
-      console.log(resulte);
-      setMessgaeNothitiaction({
-        ...resulte,
-      });
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert(
-        "There was an error submitting your application. Please try again."
+      toast.warn(
+        "There was an error submitting your application. Please try again.",
+        {
+          pauseOnHover: false,
+        }
       );
     } finally {
       // Notifaction
@@ -206,6 +206,7 @@ export default function ApplyPage({ id, data }) {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
+      <ToastContainer />
       <div className="bg-blue-600 text-white py-6">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between">
@@ -454,7 +455,6 @@ export default function ApplyPage({ id, data }) {
                 )}
               </div>
 
-              <div className="text-center">{MessgaeNothitiaction.messgae}</div>
               {/* Submit Button */}
               <div className="pt-4">
                 <button

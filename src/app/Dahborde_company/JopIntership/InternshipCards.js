@@ -3,25 +3,9 @@
 import Spinner from "@/app/Componet/spinnerUi/spinner";
 import PopupDelet from "@/app/Componet/Ui/PopupDelet";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import { mutate } from "swr";
 
-// [
-//   {
-//     _id: new ObjectId('6808d5731f6590e82e2b278c'),
-//     title: '2',
-//     description: '2',
-//     location: '2',
-//     mode: 'Remote',
-//     duration: '2',
-//     companyID: new ObjectId('6808d5401f6590e82e2b2788'),
-//     startDate: 2025-04-23T00:00:00.000Z,
-//     endDate: 2025-04-23T00:00:00.000Z,
-//     applicationDeadline: 2025-04-23T00:00:00.000Z,
-//     createdAt: 2025-04-23T11:56:35.346Z,
-//     updatedAt: 2025-04-23T11:56:35.346Z,
-//     __v: 0
-//   }
-// ]
 export default function InternshipCards({ DataCards, error, isLoading }) {
   const [editingInternship, setEditingInternship] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -31,56 +15,84 @@ export default function InternshipCards({ DataCards, error, isLoading }) {
   const [IdIntership, setIdIntership] = useState();
   // Edit Interships
   async function handleEditInternship() {
-    setIsshowSpinner(true);
-    console.log(editingInternship);
-    // fetch  api to Edit  Data in Database
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/EditDataCompany_Intership`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(editingInternship),
-      }
-    );
+    try {
+      setIsshowSpinner(true);
 
-    const result = await res.json();
-    if (res.ok) {
-      setIsEditModalOpen(false);
-      console.log(result);
-      // ✅ تحديث الكاش مباشرة بدون إعادة تحميل  تديث Swr
-      // تديث جلب البيانات
-      mutate(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllDataIntership_Dahborde_Company`
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/EditDataCompany_Intership`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(editingInternship),
+        }
       );
+
+      const result = await res.json();
+      if (res.ok) {
+        setIsEditModalOpen(false);
+        toast.success("Internship updated successfully!", {
+          pauseOnHover: false,
+          autoClose: 1000,
+        });
+        mutate(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllDataIntership_Dahborde_Company`
+        );
+      } else {
+        toast.warn(result.messgae, {
+          pauseOnHover: false,
+          autoClose: 1000,
+        });
+      }
+    } catch (error) {
+      console.error("Error updating internship:", error);
+      toast.error("Failed to update internship. Please try again.", {
+        pauseOnHover: false,
+        autoClose: 2000,
+      });
+    } finally {
+      setIsshowSpinner(false);
     }
-    setIsshowSpinner(false);
   }
 
   // Delet Interships
   async function handleDeletInternship() {
-    setIsshowSpinner(true);
+    try {
+      setIsshowSpinner(true);
 
-    // fetch  api to Delet   Data in Database
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/DeletDataCompany_Intership`,
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(IdIntership),
-      }
-    );
-
-    const result = await res.json();
-    if (res.ok) {
-      console.log(result);
-      // ✅ تحديث الكاش مباشرة بدون إعادة تحميل  تديث Swr
-      // تديث جلب البيانات
-      mutate(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllDataIntership_Dahborde_Company`
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/DeletDataCompany_Intership`,
+        {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(IdIntership),
+        }
       );
-      setIsDeletModalOpen(false);
+
+      const result = await res.json();
+      if (res.ok) {
+        toast.success("Internship deleted successfully!", {
+          pauseOnHover: false,
+          autoClose: 1000,
+        });
+        mutate(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllDataIntership_Dahborde_Company`
+        );
+        setIsDeletModalOpen(false);
+      } else {
+        toast.warn(result.messgae, {
+          pauseOnHover: false,
+          autoClose: 1000,
+        });
+      }
+    } catch (error) {
+      console.error("Error deleting internship:", error);
+      toast.error("Failed to delete internship. Please try again.", {
+        pauseOnHover: false,
+        autoClose: 1000,
+      });
+    } finally {
+      setIsshowSpinner(false);
     }
-    setIsshowSpinner(false);
   }
 
   // Format date to display in a readable format
@@ -126,6 +138,7 @@ export default function InternshipCards({ DataCards, error, isLoading }) {
 
   return (
     <div>
+      <ToastContainer />
       {isLoading ? (
         <Spinner />
       ) : DataCards.length > 0 ? (

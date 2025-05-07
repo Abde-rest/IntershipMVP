@@ -8,9 +8,8 @@ const Content = () => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllApllication_Dashbodr_Company`,
     fetcher
   );
-  console.log(data);
 
-  return <>{isLoading ? <Spinner /> : <ApplicationsTable data={data} />}</>;
+  return <>{isLoading ? <Spinner /> : <ApplicationsTable data={data} error={error}/>}</>;
 };
 
 export default Content;
