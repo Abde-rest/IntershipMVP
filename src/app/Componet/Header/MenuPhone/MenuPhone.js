@@ -1,3 +1,4 @@
+// "This compoemt is client "
 import { navigation } from "@/Data/ListWilaya";
 import Link from "next/link";
 import BtnCloseMenuPhone from "./BtnCloseMenuPhone";
@@ -5,7 +6,7 @@ import { useSession } from "next-auth/react";
 import NavLink from "@/components/ui/NavLink";
 import { FaArrowRight } from "react-icons/fa";
 import Spinner from "../../spinnerUi/spinner";
-
+import { SignOutButton } from "@/components/ui/SignOutButton";
 const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
   const { data, status } = useSession();
   const user = data?.user;
@@ -35,16 +36,19 @@ const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
           ) : (
             <li>
               {status === "authenticated" ? (
-                <NavLink
-                  href={`${
-                    user.role === "user"
-                      ? "/Dahborde_user"
-                      : "/Dahborde_company/JopIntership"
-                  }`}
-                  className="font-medium flex items-center gap-2 text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 ">
-                  Dahborde
-                  <FaArrowRight />
-                </NavLink>
+                <>
+                  <NavLink
+                    href={`${
+                      user.role === "user"
+                        ? "/Dahborde_user"
+                        : "/Dahborde_company/JopIntership"
+                    }`}
+                    className="font-medium flex items-center gap-2 text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 ">
+                    Dahborde
+                    <FaArrowRight />
+                  </NavLink>
+                  <SignOutButton />
+                </>
               ) : (
                 <>
                   {" "}
