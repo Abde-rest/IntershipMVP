@@ -11,8 +11,11 @@ import CategoriesGrid from "./Componet/Categores/CategoriesGrid";
 import Navbar from "@/components/ui/Navbar";
 
 export default function Home() {
+  // Filter Data apllication in Dahborde_company ["pending","accepted","rejected"]
+  // Crate dahborde_user page
+  // Crate dahborde_admin page
   return (
-    <div className="min-h-screen container px-5 m-auto  overflow-hidden">
+    <div className="min-h-screen container px-5 m-auto   overflow-hidden">
       {/* Hero Section */}
       <Navbar />
       <Hero />

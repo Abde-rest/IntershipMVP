@@ -3,8 +3,6 @@ import ApplyPage from "./Content";
 
 const page = async ({ params }) => {
   //  في لوحة التحكم الخاصة ب الشركة يجب احظار طلبات التدريب
-  // كل طلب فيه مجموهة من الاجرائات مثل  قبول او رفض
-  // ايضا طريقة لروية الcv في المتصفح فقط بدون تنزيل
   // هل الطلبات السابقة سوف احفضها ام سوف امسحها من قاعدة البيانات
 
   const { id } = await params;
@@ -40,7 +38,6 @@ const page = async ({ params }) => {
     <div>
       {/* Content  */}
       <ApplyPage id={id} data={data} />
-      {/* Add New details بحيث اذا شارك الرابط يقدر الشخص يعرف الشركة ايضا  */}
     </div>
   );
 };

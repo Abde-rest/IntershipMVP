@@ -14,7 +14,8 @@ import { IoClose } from "react-icons/io5";
 import SinOutBtn from "../btn/SinOutBtn";
 
 const Sidbar = ({ toggleSidebar, isSidebarOpen }) => {
-  // const pathname = usePathname();
+  // This use for get the current pathname to check if the current pathname is active
+  const pathname = usePathname();
   return (
     <aside className="min-w-64 h-full top-0 bg-white shadow-md">
       <div className="pt-5 pb-5 relative bg-blue-100">
@@ -44,18 +45,25 @@ const Sidbar = ({ toggleSidebar, isSidebarOpen }) => {
       <ul className="space-y-4 text-gray-700 ml-3 font-semibold p-2 top-5 relative">
         <Link href={"/Dahborde_company/Dahborde"}>
           <li
-            className={`hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
+            className={` ${
+              pathname === "/Dahborde_company/Dahborde" ? "bg-gray-100" : ""
+            } hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
             <MdSpaceDashboard size={20} /> Dashboard
           </li>
         </Link>
         <Link href={`/Dahborde_company/JopIntership`}>
           <li
-            className={`hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
+            className={` ${
+              pathname === "/Dahborde_company/JopIntership" ? "bg-gray-100" : ""
+            } hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
             <PiBagSimpleFill size={20} /> Internships
           </li>
         </Link>
         <Link href={"/Dahborde_company/Application"}>
-          <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3">
+          <li
+            className={` ${
+              pathname === "/Dahborde_company/Application" ? "bg-gray-100" : ""
+            } hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
             <FaHandHolding size={20} /> Application
           </li>
         </Link>
@@ -63,12 +71,18 @@ const Sidbar = ({ toggleSidebar, isSidebarOpen }) => {
           <div className={"h-px bg-gray-200 my-2"}></div>
         </div>
         <Link href={"/"}>
-          <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3">
+          <li
+            className={` ${
+              pathname === "/Dahborde_company/Settings" ? "bg-gray-100" : ""
+            } hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
             <IoIosSettings size={20} /> Settings
           </li>
         </Link>
         <Link href={"/"}>
-          <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3">
+          <li
+            className={` ${
+              pathname === "/Dahborde_company/Profile" ? "bg-gray-100" : ""
+            } hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
             <FaUserCircle size={20} /> Profile
           </li>
         </Link>

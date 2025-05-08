@@ -46,7 +46,7 @@ const Form_add_intershipe = ({ setIsAddModalOpen }) => {
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllDataIntership_Dahborde_Company`
         );
       } else {
-        toast.warn(result.messgae, {
+        toast.warn(result.message, {
           pauseOnHover: false,
           autoClose: 1000,
         });
@@ -158,16 +158,17 @@ const Form_add_intershipe = ({ setIsAddModalOpen }) => {
             </select>
           </div>
 
-          {/* Sectore Of internship  */}
+          {/* Field Of internship  */}
           <div>
             <label
-              htmlFor="sector"
+              htmlFor="field"
               className="block text-sm font-medium text-gray-700 mb-1">
               Internship Field <span className="text-red-500">*</span>
             </label>
             <select
-              id="sector"
+              id="field"
               required
+              value={newInternship.field}
               onChange={(e) =>
                 setNewInternship({
                   ...newInternship,
@@ -178,9 +179,9 @@ const Form_add_intershipe = ({ setIsAddModalOpen }) => {
               //   {...register("sector", { required: "Please select a sector" })}
             >
               <option value="" disabled>
-                Select a sector
+                Select a field
               </option>
-              <option value="Technology">Technology</option>
+              {/* <option value="Technology">Technology</option> */}
               <option value="Engineering">Engineering</option>
               <option value="Design">Design</option>
               <option value="Marketing">Marketing</option>

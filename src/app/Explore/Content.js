@@ -372,12 +372,24 @@ const ContentExplore = () => {
                     {/* Company info with logo */}
                     <div className="flex items-center mt-2">
                       <div className="relative h-10 w-10 rounded-full overflow-hidden bg-gray-100 border border-gray-200">
-                        <Image
-                          src={internship.companyLogo || "/placeholder.svg"}
-                          alt={`${internship.company} logo`}
-                          fill
-                          className="object-cover"
-                        />
+                        {/* <Image
+                            src={internship.companyID.logo || "/placeholder.svg"}
+                            alt={`${internship.company} logo`}
+                            fill
+                            className="object-cover"
+                          /> */}
+                        {internship.companyID?.logo ? (
+                          <Image
+                            src={
+                              internship.companyID.logo || "/placeholder.svg"
+                            }
+                            alt={`${internship.company} logo`}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="w-10 h-10 bg-gray-100 rounded-full "></div>
+                        )}
                       </div>
                       <div className="flex flex-col">
                         <span className="ml-3 font-medium text-gray-700">

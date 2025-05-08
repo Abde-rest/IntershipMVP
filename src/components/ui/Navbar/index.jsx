@@ -17,7 +17,6 @@ const Navbar = async () => {
   //   id: '67ffe5757273016d637fa00d',
   //   role: 'user'  or Company
 
-
   return (
     <header className={`flex items-center justify-between px-5 `}>
       <nav className={` w-full  md:text-sm  `}>
@@ -80,6 +79,35 @@ const Navbar = async () => {
           </div>
         </div>
       </nav>
+      {/* <div className="md:hidden flex-1">
+        {!user ? (
+          <div className="flex gap-2 items-center flex-1">
+            {" "}
+            <NavLink
+              href="/Form-company/SingUp"
+              className=" font-medium flex  mb-2 hover:bg-slate-100 items-center gap-2 text-sm text-black ">
+              <span>SingUp Company</span>
+              <FaArrowRight />
+            </NavLink>
+            <NavLink
+              href="/SignUp"
+              className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline">
+              SingUp
+            </NavLink>
+          </div>
+        ) : (
+          <NavLink
+            href={`${
+              user.role === "user"
+                ? "/Dahborde_user"
+                : "/Dahborde_company/JopIntership"
+            }`}
+            className="font-medium flex items-center gap-2 text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 ">
+            Dahborde
+            <FaArrowRight />
+          </NavLink>
+        )}
+      </div> */}
       <MenuPhoneUi />
     </header>
   );

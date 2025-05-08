@@ -1,17 +1,19 @@
+import DescptionPage from "../comopnent/DescptionPage";
+
 const page = () => {
   return (
     <div>
       <div className="flex flex-col h-screen w-full bg-gray-50">
         <div>
-          <div className="text-center bg-green-300 p-2">
-            جميع البيانات هيا وهمية قريبا ...
-          </div>
           <main className="flex-1 overflow-auto p-4 md:p-6 mb-5">
             {/* {} Dashboard Header {} */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-0">
-                Dashboard
-              </h1>
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-0">
+                  Dashboard
+                </h1>
+                <DescptionPage text="All Statistics Data and information about the company" />
+              </div>
               <div className="text-sm text-gray-500">Welcome back</div>
             </div>
             {/* {} Stat Cards {} */}

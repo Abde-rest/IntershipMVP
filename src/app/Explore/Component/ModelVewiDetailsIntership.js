@@ -31,20 +31,13 @@ const ModelVewiDetailsIntership = ({
           <div className="flex flex-col md:flex-row h-full">
             {/* Image Section - Left side on desktop, top on mobile */}
             <div className="md:w-2/5 relative h-64 md:h-auto bg-blue-100">
-              {/* <Image
-                src="/placeholder.svg?height=600&width=400"
+              <Image
+                src={DataVewiIntership.companyID?.logo}
                 alt="Internship opportunity"
                 layout="fill"
                 objectFit="cover"
                 className="object-cover"
-              /> */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
-                <h2 className="text-2xl font-bold text-white">
-                  {/* Software Development Internship */}
-                  {DataVewiIntership.title}
-                </h2>
-                <p className="text-sm text-white/80">Summer 2024 Opportunity</p>
-              </div>
+              />
             </div>
 
             {/* Content Section with fixed height to accommodate button */}
@@ -53,13 +46,15 @@ const ModelVewiDetailsIntership = ({
               <div className="overflow-y-auto flex-grow">
                 <div className="p-6">
                   {/* Header - Only visible on mobile */}
-                  <div className="mb-6 md:hidden">
-                    <h2 className="text-xl font-bold text-gray-900">
-                      {DataVewiIntership.title}
-                    </h2>
-                    <p className="text-sm text-gray-500">
-                      Summer 2024 Opportunity
-                    </p>
+                  <div className="mb-6 md:hidden flex justify-between items-center">
+                    <div>
+                      <h2 className="text-xl font-bold text-gray-900">
+                        {DataVewiIntership.title}
+                      </h2>
+                      <p className="text-sm text-gray-500">
+                        Summer {new Date().getFullYear()} Opportunity
+                      </p>
+                    </div>
                   </div>
 
                   {/* Internship Details Section */}
@@ -158,6 +153,13 @@ const ModelVewiDetailsIntership = ({
                             {DataVewiIntership.companyID?.company_name}
                           </p>
                         </div>
+                        <Image
+                          src={DataVewiIntership.companyID?.logo}
+                          alt="Internship opportunity"
+                          width={40}
+                          height={40}
+                          className="max-w-full"
+                        />
                       </div>
 
                       <div className="flex items-start gap-3">
@@ -197,8 +199,8 @@ const ModelVewiDetailsIntership = ({
               </div>
 
               {/* Apply Button - Fixed outside scrolling area */}
-              <div className=" bg-white py-4 px-6 border-t border-gray-200 w-full text-center m-auto">
-                <ApplyButton />
+              <div className="  py-4 px-6 border-t border-gray-200">
+                <ApplyButton id={DataVewiIntership._id} />
               </div>
             </div>
           </div>

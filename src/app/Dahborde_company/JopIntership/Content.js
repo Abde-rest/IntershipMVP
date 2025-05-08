@@ -5,6 +5,7 @@ import Form_add_intershipe from "../comopnent/form_add_intershipe";
 import InternshipCards from "./InternshipCards";
 import { FaPlus } from "react-icons/fa6";
 import { GetDataInterships } from "@/app/utils/GetDataInterships";
+import DescptionPage from "../comopnent/DescptionPage";
 
 export default function JopIntership() {
   // Get Data With SWR
@@ -18,9 +19,12 @@ export default function JopIntership() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-        <h1 className="text-2xl font-bold mb-4 sm:mb-0">
-          Internship Opportunities
-        </h1>
+        <div>
+          <h1 className="text-2xl font-bold mb-4 sm:mb-0">
+            Internship Opportunities
+          </h1>
+          <DescptionPage text="This page displays all internship opportunities available for users to apply to." />
+        </div>
         <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
           {/* Custom Filter Dropdown */}
           <div className="relative">
@@ -72,7 +76,7 @@ export default function JopIntership() {
           {/* Add Internship Button */}
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="w-full flex items-center gap-2 sm:w-auto px-4  text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none">
+            className="w-full flex items-center gap-2 sm:w-auto px-4 py-2  justify-center text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none">
             <FaPlus />
             New
           </button>

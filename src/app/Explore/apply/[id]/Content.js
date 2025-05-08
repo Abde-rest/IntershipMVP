@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 import SuccessModal from "../../Component/Modal/SuccessModal";
 import "@uploadcare/react-uploader/core.css";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 export default function ApplyPage({ id, data }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -181,7 +181,6 @@ export default function ApplyPage({ id, data }) {
         }
       );
       const resulte = await response.json();
-      console.log(resulte);
 
       if (response.ok) {
         setShowSuccessModal(true);
@@ -207,19 +206,19 @@ export default function ApplyPage({ id, data }) {
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
 
-      <div className="bg-blue-600 text-white py-6">
-        <div className="container mx-auto px-4 md:px-6">
+      <div className="">
+        <div className="container mx-auto px-4 md:px-6 border  py-6 border-gray-200  shadow rounded-md">
           <div className="flex items-center justify-between">
             <Link
               href="/Explore"
-              className="flex items-center text-white hover:text-blue-100 transition-colors">
+              className="flex items-center  text-sm md:text-xl  hover:text-black/50 transition-colors">
               <FaArrowLeft className="mr-2" />
               <span>Back to Internships</span>
             </Link>
             <Link
-              href="/Explore"
-              className="flex items-center text-white hover:text-blue-100 transition-colors">
-              <span>Back to Internships</span>
+              href="/Dahborde_user"
+              className="flex items-center gap-2  text-sm md:text-xl hover:text-black/50 transition-colors">
+              <span>Go to Dashboard</span>
               <FaArrowRight className="mr-2" />
             </Link>
           </div>
@@ -227,7 +226,7 @@ export default function ApplyPage({ id, data }) {
           <h1 className="text-2xl md:text-3xl font-bold mt-4">
             Apply for {data.title}
           </h1>
-          <p className="mt-2 text-blue-100">
+          <p className="mt-2">
             {data.field} • {data.location}
           </p>
         </div>

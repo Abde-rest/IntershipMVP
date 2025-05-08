@@ -27,14 +27,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         // ${geistSans.variable} ${geistMono.variable}
-        className={` antialiased
-         min-h-screen container
+        //  m-auto
+        //  px-4
+        // اذا درتهم راح يسبب مشكل في dah Sidbar
+        className={`antialiased min-h-screen container bg-gray-50
         `}>
         <ToastContainer />
-        {/* <SessionProvider> */}
 
         {children}
-        {/* </Sess/ionProvider> */}
       </body>
     </html>
   );

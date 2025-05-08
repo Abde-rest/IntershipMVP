@@ -3,11 +3,13 @@ import ModalApplication from "@/Model/ModelApplecate/ModelApplecate";
 import { uploadFile } from "@uploadcare/upload-client";
 import { getServerSession } from "next-auth";
 import { authoption } from "../../auth/[...nextauth]/route";
+import ModelIntership from "@/Model/Modelinternships/ModelIntership";
 
 // Save cv in  cloudinary
 // and svae the url in databse
 // يجب عليه ان يقوم ب طلب فرصة تدريبة واجدو فقط لكل intership
 // تعديل ال ui بناء على ذالك
+
 export async function POST(request) {
   try {
     const formData = await request.formData();
@@ -30,6 +32,7 @@ export async function POST(request) {
       );
     }
 
+    await dbConnect();
     // check The user is Sunmit the same appliction
     const Application = await ModalApplication.findOne({
       internshipID: idIntership,
@@ -57,7 +60,6 @@ export async function POST(request) {
       store: "auto", // لتخزين الملف مباشرة
     });
 
-
     // UploadcareFile {
     //   uuid: '0b005838-d189-4d51-bc67-a4fd9e57a933',
     //   name: 'word12.docx',
@@ -83,8 +85,6 @@ export async function POST(request) {
     // }
 
     if (result.isStored) {
-      await dbConnect();
-
       await ModalApplication.create({
         internshipID: idIntership,
         user: user.id,
@@ -100,15 +100,33 @@ export async function POST(request) {
         },
       });
 
-      return new Response(
-        JSON.stringify({ messgae: "تم  طلب التقديم بنجاح ", status: true }),
+      // add The Number of Applicants
+      const AddPlusApplicants = await ModelIntership.findByIdAndUpdate(
+        idIntership,
         {
-          status: 201,
+          $inc: { Applicants: 1 },
         }
       );
-      // return new Response.redirect(/"/");
-    }
 
+      if (AddPlusApplicants) {
+        return new Response(
+          JSON.stringify({ messgae: "تم  طلب التقديم بنجاح ", status: true }),
+          {
+            status: 201,
+          }
+        );
+      } else {
+        return new Response(
+          JSON.stringify({
+            messgae: "حدث خطاء في عملية طلب التقديم ",
+            status: false,
+          }),
+          {
+            status: 201,
+          }
+        );
+      }
+    }
     return new Response(
       JSON.stringify({
         messgae: "لم يتم طلب التقديم ! رجاء حاول مرة اخرى ",
