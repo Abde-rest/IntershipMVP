@@ -13,8 +13,11 @@ async function handleAction({ id, status }) {
         }),
       }
     );
-    const result = await response.json();
+    const resulte = await response.json();
+    console.log("Read Resulte ");
+
     if (response.ok) {
+      console.log("Toast Action is success");
       toast.success("Action successfully!", {
         pauseOnHover: false,
         autoClose: 1000,
@@ -23,14 +26,15 @@ async function handleAction({ id, status }) {
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/GetAllApllication_Dashbodr_Company`
       );
     } else {
+      console.log("Toast Action is fail 1");
       toast.warn(result.messgae, {
         pauseOnHover: false,
         autoClose: 1000,
       });
     }
-    const resulte = await response.json();
     return resulte;
   } catch (error) {
+    console.log("Toast Action is fail 2");
     console.error("Error updating internship:", error);
     toast.error("Failed to Action Appiction. Please try again.", {
       pauseOnHover: false,

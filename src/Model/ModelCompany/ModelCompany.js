@@ -1,5 +1,5 @@
 // logo: { type: String ,defaulte :"lisnke form cloudniry " },
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const CompanySchema = new mongoose.Schema(
   {
@@ -32,7 +32,12 @@ const CompanySchema = new mongoose.Schema(
       type: String,
       required: true, // مجال العمل مثلاً: تكنولوجيا، هندسة...
     },
-    logo: { type: String },
+    logo: {
+      type: String,
+      default:
+        "https://ucarecdn.com/4b7272ed-ce76-43e1-91ff-f7a1e34eb4da/user1.png",
+    },
+
     social: {
       linkedin: String,
       facebook: String,
@@ -40,11 +45,7 @@ const CompanySchema = new mongoose.Schema(
     },
     employees: { type: Number }, // عدد الموضفين
     foundedYear: { type: Number }, //   // سنة التأسيس
-    // rcNumber: { type: String, required: true, unique: true },   // رقم السجل التجاري
-    // nif: { type: String, required: true, unique: true },         // الرقم الجبائي
-    // nis: { type: String },                                       // اختياري
-    // documents: { type: String }, // رابط لتحميل ملف (PDF/صورة) للسجل التجاري
-    // isVerified: { type: Boolean, default: false }, // بعد المراجعة
+
     role: {
       type: String,
       default: "company", // لتحديد أن هذا المستخدم هو شركة
@@ -53,5 +54,12 @@ const CompanySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.models.Company ||
-  mongoose.model("Company", CompanySchema);
+// Check if the model exists before creating a new one
+let Company;
+try {
+  Company = mongoose.model("Company");
+} catch {
+  Company = mongoose.model("Company", CompanySchema);
+}
+
+export default Company;

@@ -9,7 +9,6 @@ import { authoption } from "../../auth/[...nextauth]/route";
 // يجب عليه ان يقوم ب طلب فرصة تدريبة واجدو فقط لكل intership
 // تعديل ال ui بناء على ذالك
 export async function POST(request) {
-  const PUBLIC_KEY = "0f99376cae58b72d4e2f";
   try {
     const formData = await request.formData();
     const phone = formData.get("phone"); // 'file' هو اسم الحقل في النموذج
@@ -53,14 +52,11 @@ export async function POST(request) {
     const arrayBuffer = await cv.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const result = await uploadFile(buffer, {
-      publicKey: PUBLIC_KEY,
+      publicKey: process.env.PUBLIC_KEY,
       fileName: cv.name,
       store: "auto", // لتخزين الملف مباشرة
     });
 
-    // 4.  رابط الملف كرد
-    console.log("result.cdnUrl");
-    console.log(result);
 
     // UploadcareFile {
     //   uuid: '0b005838-d189-4d51-bc67-a4fd9e57a933',

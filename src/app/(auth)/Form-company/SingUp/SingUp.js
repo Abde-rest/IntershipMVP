@@ -14,7 +14,7 @@ const SingUp = () => {
     message: null,
     statusMesage: null,
   });
-  let [DataComapnyForm, setDataComapnyForm] = useState({
+  const [DataComapnyForm, setDataComapnyForm] = useState({
     company_name: null,
     NIF: null,
     RC: null,
@@ -33,10 +33,25 @@ const SingUp = () => {
     e.preventDefault();
     setSpinnerisShow(true);
     // Her validtion Every Input use mybe zod + React query
+    const formData = new FormData();
+    formData.append("company_name", DataComapnyForm.company_name);
+    formData.append("NIF", DataComapnyForm.NIF);
+    formData.append("RC", DataComapnyForm.RC);
+    formData.append("email", DataComapnyForm.email);
+    formData.append("password", DataComapnyForm.password);
+    formData.append("phone", DataComapnyForm.phone);
+    formData.append("description", DataComapnyForm.description);
+    formData.append("city", DataComapnyForm.city);
+    formData.append("address", DataComapnyForm.address);
+    formData.append("field", DataComapnyForm.field);
+    formData.append("logo", DataComapnyForm.logo);
+    console.log("formData client");
+    console.log(formData);
+    // Send the form data to the server
     const res = await fetch("/api/SingUpCompnay", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(DataComapnyForm),
+
+      body: formData,
     });
     const result = await res.json();
     if (res.ok) {

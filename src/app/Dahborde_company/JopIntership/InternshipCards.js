@@ -3,7 +3,7 @@
 import Spinner from "@/app/Componet/spinnerUi/spinner";
 import PopupDelet from "@/app/Componet/Ui/PopupDelet";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { mutate } from "swr";
 
 export default function InternshipCards({ DataCards, error, isLoading }) {
@@ -138,7 +138,7 @@ export default function InternshipCards({ DataCards, error, isLoading }) {
 
   return (
     <div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       {isLoading ? (
         <Spinner />
       ) : DataCards.length > 0 ? (

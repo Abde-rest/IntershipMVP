@@ -1,16 +1,14 @@
-import { FaCheck, FaGithub, FaTimes } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import Accept_Application from "../action_Appliction/Accept_Application";
 import Reject_Application from "../action_Appliction/Reject_Application";
-import { ToastContainer } from "react-toastify";
 export default function resulteTable({ data, error }) {
   return (
     <>
       {error && <div>{error}</div>}
       {data && (
         <div className="overflow-x-auto rounded-lg border  border-gray-200   ">
-          <ToastContainer />
           <table className="w-full divide-y divide-gray-200 ">
             <thead className="bg-gray-50 sticky top-0">
               <tr>
@@ -73,7 +71,6 @@ export default function resulteTable({ data, error }) {
                     </td>
                     <td
                       className={` py-4 whitespace-nowrap text-sm font-medium text-gray-900
-                  
                   ${
                     application.internshipID ? null : "bg-red-200 text-center"
                   }`}>
@@ -104,7 +101,7 @@ export default function resulteTable({ data, error }) {
                         {application.LinksSoch.linkedin && (
                           <div className="relative group">
                             <a
-                              href={application.LinksSoch.linkedin}
+                              href={application.LinksSoch?.linkedin}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center justify-center p-2 rounded-full hover:bg-gray-100">
@@ -119,7 +116,7 @@ export default function resulteTable({ data, error }) {
                         {application.LinksSoch.github && (
                           <div className="relative group">
                             <a
-                              href={application.LinksSoch.github}
+                              href={application.LinksSoch?.github}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center justify-center p-2 rounded-full hover:bg-gray-100">

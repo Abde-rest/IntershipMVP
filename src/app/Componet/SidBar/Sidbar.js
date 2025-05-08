@@ -14,7 +14,7 @@ import { IoClose } from "react-icons/io5";
 import SinOutBtn from "../btn/SinOutBtn";
 
 const Sidbar = ({ toggleSidebar, isSidebarOpen }) => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   return (
     <aside className="min-w-64 h-full top-0 bg-white shadow-md">
       <div className="pt-5 pb-5 relative bg-blue-100">

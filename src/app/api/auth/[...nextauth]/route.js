@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import dbConnect from "@/lib/Dbconnect";
 import User from "@/Model/ModelUser/ModelUser";
 import bcrypt from "bcryptjs";
-import ModelCompany from "@/Model/ModelCompany/ModelCompany";
+import Company from "@/Model/ModelCompany/ModelCompany";
 // import { MongoDBAdapter } from "@auth/mongodb-adapter";
 // import clientPromise from "@/lib/mongodb";
 // Where Is Adapter MongoDb
@@ -20,60 +20,55 @@ export let authoption = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        // logic  Login Her
-        await dbConnect();
-        const { email, password, userType } = credentials;
+        try {
+          await dbConnect();
+          const { email, password, userType } = credentials;
 
-        if (userType === "company") {
-          // We are need to validtion for RC and NIF
-          // find user
-          const company = await ModelCompany.findOne({ email });
-          if (!company) {
-            throw new Error("حساب الشركة غير موجود ! رجاء انشئ حساب ");
+          if (userType === "company") {
+            const company = await Company.findOne({ email });
+            if (!company) {
+              throw new Error("حساب الشركة غير موجود ! رجاء انشئ حساب");
+            }
+
+            const isValidPasswordCompany = await bcrypt.compare(
+              password,
+              company.password
+            );
+
+            if (!isValidPasswordCompany) {
+              throw new Error("كلمة المرور غير صحيحة");
+            }
+
+            return {
+              id: company._id.toString(),
+              name: company.company_name,
+              email: company.email,
+              image: company.logo,
+              role: company.role,
+            };
           }
-          const isValidPasswordCompany = await bcrypt.compare(
-            password,
-            company.password
-          );
-          if (!isValidPasswordCompany) {
-            throw new Error(" كلمة المرور  غير صحيحة   ");
+
+          const user = await User.findOne({ email });
+          if (!user) {
+            throw new Error("الحساب غير موجود !! رجاء أنشئ حساب");
           }
+
+          const isValidPassword = await bcrypt.compare(password, user.password);
+          if (!isValidPassword) {
+            throw new Error("كلمة المرور غير صحيحة");
+          }
+
           return {
-            id: company._id.toString(), // تحويل ObjectId إلى سلسلة
-            name: company.company_name,
-            email: company.email,
-            role: company.role,
+            id: user._id.toString(),
+            name: user.Full_name,
+            email: user.email,
+            image: user.logo,
+            role: user.role,
           };
+        } catch (error) {
+          console.error("Authentication error:", error);
+          throw error;
         }
-
-        // find user
-        let user = await User.findOne({ email });
-        //  {
-        //   _id: new ObjectId('67fd788a714b96c0a7ac73d7'),
-        //   Full_name: 'hhygyhjfj',
-        //   email: 'abdeth44jfomes4@gmail.com',
-        //   password: '$2b$10$4wOkbbEPOgedJa..ZUYztedmU2QDYz23eJN96T8mvTEFxXNG5.jwy',
-        //   role: 'user',
-        //   bio: 'انا شخص مهتم بالتعلم والبحث عن فرص جديدة ',
-        //   Skills: [],
-        //   createdAt: 2025-04-14T21:05:14.694Z,
-        //   __v: 0
-        // }
-        if (!user) {
-          throw new Error("الحساب غير موجود  !!  رجاء أنشئ حساب");
-        }
-
-        const isValidPassword = await bcrypt.compare(password, user.password);
-
-        if (!isValidPassword) {
-          throw new Error(" كلمة المرور  غير صحيحة   ");
-        }
-        return {
-          id: user._id.toString(), // تحويل ObjectId إلى سلسلة
-          name: user.Full_name,
-          email: user.email,
-          role: user.role,
-        };
       },
     }),
     GoogleProvider({

@@ -1,21 +1,6 @@
-import { getServerSession } from "next-auth";
-import { authoption } from "@/app/api/auth/[...nextauth]/route";
-
-const page = async () => {
-  const { user } = await getServerSession(authoption);
-  //     user: {
-  //       name: 'شركة العطر العصري',
-  //       email: 'abc@gmail.com',
-  //       image: undefined,
-  //       id: '6803eb663c31420b10acd8f8',
-  //       role: 'company'
-  //     }
+const page = () => {
   return (
     <div>
-      {/* name : {user?.name} and Email : {user?.email}
-      <h1>The role is : {user?.role}</h1>
-      and the id : {id} */}
-      {/* Main Content */}
       <div className="flex flex-col h-screen w-full bg-gray-50">
         <div>
           <div className="text-center bg-green-300 p-2">
@@ -321,7 +306,7 @@ const page = async () => {
                     <div className="w-1 bg-company-200 rounded-full"></div>
                     <div>
                       <p className="font-medium text-sm sm:text-base">
-                        New internship position created: 'Mobile Developer'
+                        {/* New internship position created: 'Mobile Developer' */}
                       </p>
                       <p className="text-xs sm:text-sm text-gray-500">
                         2 hours ago
@@ -366,7 +351,7 @@ const page = async () => {
                     <div className="w-1 bg-company-200 rounded-full"></div>
                     <div>
                       <p className="font-medium text-sm sm:text-base">
-                        New internship position created: 'Content Writer'
+                        {/* New internship position created: 'Content Writer' */}
                       </p>
                       <p className="text-xs sm:text-sm text-gray-500">
                         2 days ago

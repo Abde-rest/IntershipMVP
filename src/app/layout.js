@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 // Notification Sysstem
 // @tanstack/store و sonner
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         className={` antialiased
          min-h-screen container
         `}>
+        <ToastContainer />
         {/* <SessionProvider> */}
 
         {children}

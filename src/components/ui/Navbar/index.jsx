@@ -7,7 +7,6 @@ import { navigation } from "@/Data/ListWilaya";
 import { getServerSession } from "next-auth";
 import { authoption } from "@/app/api/auth/[...nextauth]/route";
 import "@/app/globals.css";
-import SinOutBtn from "@/app/Componet/btn/SinOutBtn";
 const Navbar = async () => {
   const session = await getServerSession(authoption);
   const user = session?.user;
@@ -17,8 +16,7 @@ const Navbar = async () => {
   //   image: 'https://lh3.googleusercontent.com/a/ACg8ocKCBqQ_I837viWtpExcojqEJrEDv_YiqjIyqYByJ4fBMMVXphgv=s96-c',
   //   id: '67ffe5757273016d637fa00d',
   //   role: 'user'  or Company
-  console.log("user");
-  console.log(user);
+
 
   return (
     <header className={`flex items-center justify-between px-5 `}>
@@ -26,7 +24,7 @@ const Navbar = async () => {
         <div className="flex  justify-between items-center mx-auto md:flex">
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Brand />
-            <SinOutBtn />
+            {/* <SinOutBtn /> */}
             <div className="md:hidden">
               <button
                 role="button"

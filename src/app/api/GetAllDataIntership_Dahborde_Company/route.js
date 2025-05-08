@@ -1,5 +1,4 @@
 import dbConnect from "@/lib/Dbconnect";
-
 import Internship from "@/Model/Modelinternships/ModelIntership";
 import { getServerSession } from "next-auth";
 import { authoption } from "../auth/[...nextauth]/route";

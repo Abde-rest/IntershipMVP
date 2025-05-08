@@ -206,7 +206,7 @@ export default function ApplyPage({ id, data }) {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
-      <ToastContainer />
+
       <div className="bg-blue-600 text-white py-6">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between">
