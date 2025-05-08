@@ -6,7 +6,8 @@ import { useSession } from "next-auth/react";
 import NavLink from "@/components/ui/NavLink";
 import { FaArrowRight } from "react-icons/fa";
 import Spinner from "../../spinnerUi/spinner";
-import { SignOutButton } from "@/components/ui/SignOutButton";
+import SinOutBtn from "../../btn/SinOutBtn";
+
 const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
   const { data, status } = useSession();
   const user = data?.user;
@@ -47,7 +48,7 @@ const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
                     Dahborde
                     <FaArrowRight />
                   </NavLink>
-                  <SignOutButton />
+                  <SinOutBtn />
                 </>
               ) : (
                 <>
