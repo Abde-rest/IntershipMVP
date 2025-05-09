@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Brand from "../Brand";
 import NavLink from "../NavLink";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaSignOutAlt } from "react-icons/fa";
 import MenuPhoneUi from "@/app/(auth)/Comopont/MenuPoneUi.js/MenuPhoneUi";
 import { navigation } from "@/Data/ListWilaya";
 import { getServerSession } from "next-auth";
 import { authoption } from "@/app/api/auth/[...nextauth]/route";
 import "@/app/globals.css";
+import SinOutBtn from "@/app/Componet/btn/SinOutBtn";
 const Navbar = async () => {
   const session = await getServerSession(authoption);
   const user = session?.user;
@@ -47,67 +48,43 @@ const Navbar = async () => {
                 {!user ? (
                   <>
                     <NavLink
-                      href="/Form-company/SingUp"
+                      href="/Form-company/Login"
                       className=" font-medium flex  hover:bg-slate-100 items-center gap-2 text-sm text-black ">
-                      SingUp Company
+                      SingIn Company
                       <FaArrowRight />
-                    </NavLink>{" "}
+                    </NavLink>
                     <NavLink
-                      href="/SignUp"
+                      href="/Login"
                       className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline">
-                      SingUp
-                    </NavLink>{" "}
+                      SingIn
+                    </NavLink>
                   </>
                 ) : (
-                  <NavLink
-                    href={`${
-                      user.role === "user"
-                        ? "/Dahborde_user"
-                        : "/Dahborde_company/JopIntership"
-                    }`}
-                    className=" font-medium flex  items-center gap-2 text-sm text-white
-
- bg-gray-800 hover:bg-gray-600 active:bg-gray-900 
-
+                  <div className="flex items-center">
+                    {" "}
+                    <NavLink
+                      href={`${
+                        user.role === "user"
+                          ? "/Dahborde_user"
+                          : "/Dahborde_company/JopIntership"
+                      }`}
+                      className="font-medium flex  items-center gap-2 text-sm text-white  bg-gray-800 hover:bg-gray-600 active:bg-gray-900 
 ">
-                    Dahborde
-                    <FaArrowRight />
-                  </NavLink>
+                      Dahborde
+                      <FaArrowRight />
+                    </NavLink>
+                    <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex items-center gap-1">
+                      <SinOutBtn />
+                      <FaSignOutAlt size={20} />
+                    </li>
+                  </div>
                 )}
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      {/* <div className="md:hidden flex-1">
-        {!user ? (
-          <div className="flex gap-2 items-center flex-1">
-            {" "}
-            <NavLink
-              href="/Form-company/SingUp"
-              className=" font-medium flex  mb-2 hover:bg-slate-100 items-center gap-2 text-sm text-black ">
-              <span>SingUp Company</span>
-              <FaArrowRight />
-            </NavLink>
-            <NavLink
-              href="/SignUp"
-              className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline">
-              SingUp
-            </NavLink>
-          </div>
-        ) : (
-          <NavLink
-            href={`${
-              user.role === "user"
-                ? "/Dahborde_user"
-                : "/Dahborde_company/JopIntership"
-            }`}
-            className="font-medium flex items-center gap-2 text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 ">
-            Dahborde
-            <FaArrowRight />
-          </NavLink>
-        )}
-      </div> */}
+
       <MenuPhoneUi />
     </header>
   );

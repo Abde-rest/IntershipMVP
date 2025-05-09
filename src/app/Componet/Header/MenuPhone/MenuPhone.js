@@ -4,7 +4,7 @@ import Link from "next/link";
 import BtnCloseMenuPhone from "./BtnCloseMenuPhone";
 import { useSession } from "next-auth/react";
 import NavLink from "@/components/ui/NavLink";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaSignOutAlt } from "react-icons/fa";
 import Spinner from "../../spinnerUi/spinner";
 import SinOutBtn from "../../btn/SinOutBtn";
 
@@ -48,7 +48,10 @@ const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
                     Dahborde
                     <FaArrowRight />
                   </NavLink>
-                  <SinOutBtn />
+                  <div className="flex items-center justify-between gap-2 mt-2 w-full p-2  rounded-md bg-red-400  text-white">
+                    <SinOutBtn />
+                    <FaSignOutAlt size={20} />
+                  </div>
                 </>
               ) : (
                 <>

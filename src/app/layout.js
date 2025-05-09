@@ -1,7 +1,9 @@
+// "use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
-
+// import NextNProgress from "nextjs-progressbar";
+import NextTopLoader from "nextjs-toploader";
 // Notification Sysstem
 // @tanstack/store و sonner
 
@@ -33,6 +35,8 @@ export default function RootLayout({ children }) {
         className={`antialiased min-h-screen container bg-gray-50
         `}>
         <ToastContainer />
+        <NextTopLoader />
+        {/* <NextNProgress/> */}
 
         {children}
       </body>

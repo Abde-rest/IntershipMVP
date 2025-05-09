@@ -17,7 +17,7 @@ const ModelVewiDetailsIntership = ({
   return (
     <div>
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 transition-opacity duration-400 `}>
+        className={`fixed inset-0 z-50 flex items-center justify-center  bg-black/50 transition-opacity duration-400 `}>
         <div
           className={`bg-white rounded-lg shadow-xl w-[90%] h-[90%] max-h-[90vh] overflow-hidden relative transition-all duration-400 `}
           role="dialog"
