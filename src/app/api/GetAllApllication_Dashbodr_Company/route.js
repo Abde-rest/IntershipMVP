@@ -3,6 +3,9 @@ import dbConnect from "@/lib/Dbconnect";
 import Application from "@/Model/ModelApplecate/ModelApplecate";
 // تحتاج
 import Internship from "@/Model/Modelinternships/ModelIntership";
+import Company from "@/Model/ModelCompany/ModelCompany";
+import user from "@/Model/ModelUser/ModelUser";
+
 import { getServerSession } from "next-auth";
 import { authoption } from "../auth/[...nextauth]/route";
 
@@ -12,47 +15,57 @@ import { authoption } from "../auth/[...nextauth]/route";
 export async function GET(req) {
   const { user } = await getServerSession(authoption);
   const id = user.id;
+  console.log("Company id");
+  console.log(id);
   try {
     await dbConnect();
-    const data = await Application.find({ companyId: id }).populate(
-      "internshipID"
-    );
+    const data = await Application.find({ companyId: id })
+      .populate({
+        path: "user",
+        select: "Full_name",
+      })
+      .populate("internshipID")
+      .populate({
+        path: "companyId",
+        select: "company_name",
+      });
 
+    console.log("Data comapnay name and Intership Id and aplliction ");
     console.log(data);
     // [
-    //     {
-    //       LinksSoch: {
-    //         linkedin: 'https://www.linkedin.com/in/dummy-link-775982111/',
-    //         github: ''
-    //       },
-    //       _id: new ObjectId('68111c9917e91d2f08cdd3eb'),
-    //       internshipID: {
-    //         _id: new ObjectId('680be85c438a1b22916cf814'),
-    //         title: 'Front end developer',
-    //         description: 'نحتاج الى شخص ماهر يستطيع صناعة  تصمايم حيدة وتجاوبة معا معرفة لمكتبات حديثة ',
-    //         location: 'Ain el beel ',
-    //         mode: 'Remote',
-    //         field: 'Engineering',
-    //         duration: '3 Month',
-    //         companyID: new ObjectId('680b8e5392ff1a4100e462e4'),
-    //         startDate: 2025-04-25T00:00:00.000Z,
-    //         endDate: 2025-04-30T00:00:00.000Z,
-    //         applicationDeadline: 2025-06-05T00:00:00.000Z,
-    //         Applicants: 0,
-    //         createdAt: 2025-04-25T19:54:04.215Z,
-    //         updatedAt: 2025-04-25T19:54:04.215Z,
-    //         __v: 0
-    //       },
-    //       user: new ObjectId('680b8e5392ff1a4100e462e4'),
-    //       companyId: new ObjectId('680b8e5392ff1a4100e462e4'),
-    //       status: 'قيد المراجعة',
-    //       cvUrl: 'https://ucarecdn.com/2e4c5813-04a0-48a1-99ce-cf48a9dabdd9/',
-    //       phone: 213773430842,
-    //       createdAt: 2025-04-29T18:38:17.642Z,
-    //       updatedAt: 2025-04-29T18:38:17.642Z,
+    //   {
+    //     cvUrl: {
+    //       url: 'https://ucarecdn.com/34ec9543-613e-409f-9e88-4c550973d620/',
+    //       uuid: '34ec9543-613e-409f-9e88-4c550973d620'
+    //     },
+    //     LinksSoch: { linkedin: '', github: '' },
+    //     _id: new ObjectId('681fb304f2cf2094bcda798d'),
+    //     internshipID: {
+    //       _id: new ObjectId('681fb2cff2cf2094bcda7984'),
+    //       title: 'Front nd ',
+    //       description: 'signature',
+    //       location: 'signature',
+    //       mode: 'In-office',
+    //       field: 'Marketing',
+    //       duration: 'signature',
+    //       companyID: new ObjectId('681e31da7dabc43dbf83bdf9'),
+    //       startDate: 2025-05-10T00:00:00.000Z,
+    //       endDate: 2025-05-10T00:00:00.000Z,
+    //       applicationDeadline: 2025-06-04T00:00:00.000Z,
+    //       Applicants: 1,
+    //       createdAt: 2025-05-10T20:10:55.160Z,
+    //       updatedAt: 2025-05-10T20:11:48.243Z,
     //       __v: 0
-    //     }
-    //   ]
+    //     },
+    //     user: new ObjectId('681e31da7dabc43dbf83bdf9'),
+    //     companyId: null,
+    //     status: 'pending',
+    //     phone: 213773430842,
+    //     createdAt: 2025-05-10T20:11:48.215Z,
+    //     updatedAt: 2025-05-10T20:11:48.215Z,
+    //     __v: 0
+    //   }
+    // ]
     return new Response(JSON.stringify(data), {
       status: 201,
     });

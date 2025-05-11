@@ -55,11 +55,11 @@ const CompanySchema = new mongoose.Schema(
 );
 
 // Check if the model exists before creating a new one
-let Company;
-try {
-  Company = mongoose.model("Company");
-} catch {
-  Company = mongoose.model("Company", CompanySchema);
-}
-
-export default Company;
+// let Company;
+// try {
+//   Company = mongoose.model("Company");
+// } catch {
+//   Company = mongoose.model("Company", CompanySchema);
+// }
+export default mongoose.models.Company ||
+  mongoose.model("Company", CompanySchema);

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.8.0",
+    "@react-pdf/renderer": "^4.3.0",
     "@uploadcare/react-uploader": "^1.7.1",
     "bcryptjs": "^3.0.2",
     "mongodb": "^6.15.0",

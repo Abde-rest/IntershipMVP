@@ -17,12 +17,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen container px-5 m-auto overflow-hidden">
-      {/* Hero Section */}
       <Navbar />
+
       <Hero />
       {/* Categories */}
       <CategoriesGrid />
-
       <GradientWrapper>
         <Features />
         <CTA />

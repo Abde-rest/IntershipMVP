@@ -3,7 +3,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import Accept_Application from "../action_Appliction/Accept_Application";
 import Reject_Application from "../action_Appliction/Reject_Application";
+import Pdf from "@/app/Componet/Pdf/Pdf";
+import PDFDownload from "@/app/Componet/Pdf/PDFDownload";
 export default function resulteTable({ data, error }) {
+  console.log("Data Application :");
+  console.log(data);
+
   return (
     <>
       {error && <div>{error}</div>}
@@ -169,7 +174,8 @@ export default function resulteTable({ data, error }) {
                             />
                           </>
                         ) : (
-                          "تم اتخاذ الاجراء "
+                          // "تم اتخاذ الاجراء "
+                          <PDFDownload application={application} />
                         )}
                       </div>
                     </td>

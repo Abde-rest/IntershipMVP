@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 // create Shecma
 const userSchema = new mongoose.Schema(
@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: mongoose.Schema.Types.Mixed, // هنا نستخدم Mixed للسماح بأي نوع من البيانات
       required: true,
-      unique: true 
+      unique: true,
     },
     password: {
       type: mongoose.Schema.Types.Mixed, // هنا نستخدم Mixed للسماح بأي نوع من البيانات
@@ -48,15 +48,13 @@ const userSchema = new mongoose.Schema(
     },
   },
   { timestamps: true } // يقوم بإضافة حقلين تلقائيًا لكل سجل douc
-  // createdAt
-  // updatedAt
 );
 
-let User;
-try {
-  User = mongoose.model("User");
-} catch (error) {
-  User = mongoose.model("User", userSchema);
-}
-
-module.exports = User;
+// let User;
+// try {
+//   User = mongoose.model("User");
+// } catch (error) {
+//   User = mongoose.model("User", userSchema);
+// }
+export default mongoose.models.User || mongoose.model("User", userSchema);
+// module.exports = User;
