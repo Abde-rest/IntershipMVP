@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { FaBolt } from "react-icons/fa";
-
+import Image from "next/image";
+import logo from "@/public/LogoCompany/Tarbassi.png";
 const Brand = () => (
-  // <div className="flex items-center gap-2">
   <Link href="/">
-    <div className="w-10 h-10   m-auto text-center rounded-full bg-gradient-to-r from-black to-purple-500 flex items-center justify-center">
-      <FaBolt className="w-6 h-6 text-white" />
-    </div>
+    <Image src={logo} alt="logo" className="w-32 h-16" />
   </Link>
 );
 export default Brand;
