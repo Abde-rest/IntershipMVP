@@ -9,7 +9,15 @@ const Content = () => {
     fetcher
   );
 
-  return <>{isLoading ? <Spinner /> : <ApplicationsTable data={data} error={error}/>}</>;
+  return (
+    <>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <ApplicationsTable data={data} error={error} />
+      )}
+    </>
+  );
 };
 
 export default Content;

@@ -27,7 +27,7 @@ export default function JopIntership() {
         </div>
         <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
           {/* Custom Filter Dropdown */}
-          <div className="relative">
+          {/* <div className="relative">
             <button
               onClick={() => setIsFilterOpen(!isFilterOpen)}
               className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none">
@@ -71,7 +71,7 @@ export default function JopIntership() {
                 </ul>
               </div>
             )}
-          </div>
+          </div> */}
 
           {/* Add Internship Button */}
           <button

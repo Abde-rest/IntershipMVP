@@ -51,7 +51,6 @@ const Navbar = async () => {
                       href="/Form-company/Login"
                       className=" font-medium flex  hover:bg-slate-100 items-center gap-2 text-sm text-black ">
                       SingIn Company
-                      <FaArrowRight />
                     </NavLink>
                     <NavLink
                       href="/Login"

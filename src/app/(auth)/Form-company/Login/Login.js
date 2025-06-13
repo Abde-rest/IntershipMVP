@@ -207,7 +207,7 @@ const Login = () => {
           )}
         </button>
       </div>
-      <p className="text-center text-sm text-gray-500 mt-4">
+      {/* <p className="text-center text-sm text-gray-500 mt-4">
         By registering, you agree to our{" "}
         <a href="#" className="text-blue-600 hover:underline">
           Terms of Service
@@ -216,7 +216,7 @@ const Login = () => {
         <a href="#" className="text-blue-600 hover:underline">
           Privacy Policy
         </a>
-      </p>
+      </p> */}
     </form>
   );
 };

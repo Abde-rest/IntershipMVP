@@ -19,7 +19,8 @@ const HerdaerDah = ({ toggleSidebar, isSidebarOpen }) => {
             toggleSidebar={toggleSidebar}
             isSidebarOpen={isSidebarOpen}
           />
-          <div className="relative flex items-center">
+          {/* serach Input  */}
+          {/* <div className="relative flex items-center">
             <div className="absolute pl-2">
               <IoSearchOutline className="w-5 h-5" />
             </div>
@@ -28,13 +29,13 @@ const HerdaerDah = ({ toggleSidebar, isSidebarOpen }) => {
               placeholder="Search projects"
               className="pr-4 py-2 rounded-md border text-sm pl-8"
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="hover:bg-slate-200 rounded-full  cursor-pointer p-2">
+          {/* <div className="hover:bg-slate-200 rounded-full  cursor-pointer p-2">
             <MdOutlineNotificationsNone className="w-5 h-5" />
-          </div>
+          </div> */}
           {isLoading ? (
             <div className="w-10 h-10 bg-slate-200 rounded-full"></div>
           ) : (

@@ -1,8 +1,11 @@
 import React from "react";
 import Heding from "../Heding/Heding";
-import Link from "next/link";
-import { FaBusinessTime, FaCode, FaQuidditch } from "react-icons/fa";
-import Image from "next/image";
+import {
+  FaBusinessTime,
+  FaCode,
+  FaQuidditch,
+  FaDigitalTachograph,
+} from "react-icons/fa";
 import { MdDesignServices, MdOutlineWbIncandescent } from "react-icons/md";
 import NavLink from "@/components/ui/NavLink";
 
@@ -11,17 +14,32 @@ const categories = [
   {
     title: "Personal Development",
     icon: <FaCode />,
+    description: "Enhance your skills and grow professionally",
   },
   {
     title: "Business Management",
     icon: <FaBusinessTime />,
+    description: "Learn essential business and management skills",
   },
-  { title: "Arts & Design", icon: <MdDesignServices /> },
-
-  { title: "UI/UX Design", icon: <FaQuidditch /> },
+  {
+    title: "Arts & Design",
+    icon: <MdDesignServices />,
+    description: "Express creativity through various art forms",
+  },
+  {
+    title: "UI/UX Design",
+    icon: <FaQuidditch />,
+    description: "Create beautiful and functional user interfaces",
+  },
   {
     title: "Graphic Design",
     icon: <MdOutlineWbIncandescent />,
+    description: "Master visual communication and design",
+  },
+  {
+    title: "Digital Marketing",
+    icon: <FaDigitalTachograph />,
+    description: "Learn modern marketing strategies and tools",
   },
   // {
   //   title: "Digital Marketing",
@@ -53,24 +71,29 @@ export default function CategoriesGrid() {
         <h2 className="text-3xl font-bold text-gray-800">
           Browse By Categories
         </h2>
+        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          Find your perfect internship opportunity and start your professional
+          journey today.
+        </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-,x-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
         {categories.map((cat, index) => (
-          <Link
-            href={"/"}
+          <div
             key={index}
-            className={`flex items-center gap-4 p-4 hover:${cat.color} duration-100   shadow-sm rounded-lg border border-black `}>
-            <div
-              className={`w-10 h-10 rounded-full border-2 border-current flex items-center justify-center }`}>
-              {cat.icon}
+            className="flex flex-col gap-2 p-4 hover:bg-gray-50 transition-colors duration-300 shadow-sm rounded-lg border border-gray-200 cursor-default">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full border-2 border-current flex items-center justify-center">
+                {cat.icon}
+              </div>
+              <span className="font-semibold text-gray-700">{cat.title}</span>
             </div>
-            <span className="font-semibold text-gray-700">{cat.title}</span>
-          </Link>
+            <p className="text-sm text-gray-500 pl-14">{cat.description}</p>
+          </div>
         ))}
       </div>
       <NavLink
-        href="/get-started"
-        className="text-white m-auto text-center w-fit block mt-4 bg-gray-800 hover:bg-gray-600 active:bg-gray-900 ">
+        href="/Explore"
+        className="text-white m-auto text-center w-fit block mt-4 bg-gray-800 hover:bg-gray-600 active:bg-gray-900">
         Explore
       </NavLink>
     </section>

@@ -207,7 +207,7 @@ export default function ApplyPage({ id, data }) {
       {/* Header */}
 
       <div className="">
-        <div className="container mx-auto px-4 md:px-6 border  py-6 border-gray-200  shadow rounded-md">
+        <div className="container mx-auto px-4 md:px-6 border bg-primary py-6 border-gray-200  shadow rounded-md">
           <div className="flex items-center justify-between">
             <Link
               href="/Explore"
@@ -215,12 +215,12 @@ export default function ApplyPage({ id, data }) {
               <FaArrowLeft className="mr-2" />
               <span>Back to Internships</span>
             </Link>
-            <Link
+            {/* <Link
               href="/Dahborde_user"
               className="flex items-center gap-2  text-sm md:text-xl hover:text-black/50 transition-colors">
               <span>Go to Dashboard</span>
               <FaArrowRight className="mr-2" />
-            </Link>
+            </Link> */}
           </div>
 
           <h1 className="text-2xl md:text-3xl font-bold mt-4">

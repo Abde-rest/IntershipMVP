@@ -70,22 +70,22 @@ const Sidbar = ({ toggleSidebar, isSidebarOpen }) => {
         <div className="mt-6 px-4">
           <div className={"h-px bg-gray-200 my-2"}></div>
         </div>
-        <Link href={"/"}>
+        {/* <Link href={"/"}>
           <li
             className={` ${
               pathname === "/Dahborde_company/Settings" ? "bg-gray-100" : ""
             } hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
             <IoIosSettings size={20} /> Settings
           </li>
-        </Link>
-        <Link href={"/"}>
+        </Link> */}
+        {/* <Link href={"/"}>
           <li
             className={` ${
               pathname === "/Dahborde_company/Profile" ? "bg-gray-100" : ""
             } hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex gap-3`}>
             <FaUserCircle size={20} /> Profile
           </li>
-        </Link>
+        </Link> */}
 
         <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex items-center gap-1">
           <FaSignOutAlt size={20} />

@@ -218,14 +218,14 @@ export default function InternshipCards({ DataCards, error, isLoading }) {
                     </div>
 
                     {/* Applicants */}
-                    <div className="flex justify-between items-center py-2">
+                    {/* <div className="flex justify-between items-center py-2">
                       <span className="text-xs font-medium">
                         Current Applicants
                       </span>
                       <span className="text-sm font-medium">
                         👥 {internship.Applicants}
                       </span>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Application Deadline - Enhanced */}

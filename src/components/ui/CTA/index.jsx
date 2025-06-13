@@ -25,7 +25,7 @@ const CTA = () => {
               place.{" "}
             </p>
             <NavLink
-              href="/get-started"
+                 href="/Explore"
               className="inline-block mt-4 font-medium text-sm text-white bg-gray-800  active:bg-indigo-800">
               Explore
             </NavLink>

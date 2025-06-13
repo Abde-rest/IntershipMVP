@@ -18,7 +18,7 @@ const socialInfo = [
         </defs>
       </svg>
     ),
-    href: "#",
+    href: "https://www.facebook.com/share/1EnATc9jXU/",
   },
   {
     icon: (
@@ -39,7 +39,7 @@ const socialInfo = [
         </defs>
       </svg>
     ),
-    href: "#",
+    href: "https://www.facebook.com/share/1EnATc9jXU/",
   },
   {
     icon: (
@@ -60,7 +60,7 @@ const socialInfo = [
         </defs>
       </svg>
     ),
-    href: "#",
+    href: "https://www.facebook.com/share/1EnATc9jXU/",
   },
 ];
 

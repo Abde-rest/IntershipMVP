@@ -11,27 +11,35 @@ import CategoriesGrid from "./Componet/Categores/CategoriesGrid";
 import Navbar from "@/components/ui/Navbar";
 
 export default function Home() {
-  // Filter Data apllication in Dahborde_company ["pending","accepted","rejected"]
-  // Crate dahborde_user page
-  // Crate dahborde_admin page
-
   return (
     <div className="min-h-screen container px-5 m-auto overflow-hidden">
       <Navbar />
 
-      <Hero />
-      {/* Categories */}
-      <CategoriesGrid />
+      <section id="home">
+        <Hero />
+      </section>
+
+      <section id="categories">
+        <CategoriesGrid />
+      </section>
+
       <GradientWrapper>
-        <Features />
-        <CTA />
+        <section id="features">
+          <Features />
+          <CTA />
+        </section>
       </GradientWrapper>
+
       <ToolKit />
+
       <GradientWrapper>
+        {/* <section id="testimonials"> */}
         <Testimonials />
+        {/* </section> */}
       </GradientWrapper>
+
       <FooterCTA />
-      <LogoGrid />
+      {/* <LogoGrid /> */}
       <Footer />
     </div>
   );

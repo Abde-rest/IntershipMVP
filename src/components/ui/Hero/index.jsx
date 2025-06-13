@@ -19,7 +19,7 @@ const Hero = () => (
             Explore
           </NavLink>
           <NavLink
-            href="#cta"
+            href="/learn-more"
             className="text-gray-700 border hover:bg-gray-50"
             scroll={false}>
             Learn more
