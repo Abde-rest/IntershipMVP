@@ -53,6 +53,7 @@ export async function POST(request) {
       );
     }
 
+    console.log("File Type:", cv.type, "File Name:", cv.name);
     // 2. تحويل الملف إلى buffer
     const arrayBuffer = await cv.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);

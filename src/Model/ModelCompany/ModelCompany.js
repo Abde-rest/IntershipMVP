@@ -35,7 +35,7 @@ const CompanySchema = new mongoose.Schema(
     logo: {
       type: String,
       default:
-        "https://ucarecdn.com/4b7272ed-ce76-43e1-91ff-f7a1e34eb4da/user1.png",
+        "https://ucarecdn.com/0fe529a8-643b-40bf-a8b3-9e09ac4d00f3/user1.png",
     },
 
     social: {

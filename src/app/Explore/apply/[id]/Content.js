@@ -57,16 +57,6 @@ export default function ApplyPage({ id, data }) {
 
     if (!file) return;
 
-    // Check file type
-    const fileExt = file.name.split(".").pop()?.toLowerCase();
-    if (fileExt !== "pdf" && fileExt !== "doc" && fileExt !== "docx") {
-      setFormErrors({ ...formErrors, cv: "Please upload a PDF or DOC file" });
-      setFileName("");
-      setcvFile(null);
-      if (fileInputRef.current) fileInputRef.current.value = "";
-      return;
-    }
-
     // Check file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
       setFormErrors({ ...formErrors, cv: "File size should be less than 5MB" });
@@ -87,7 +77,7 @@ export default function ApplyPage({ id, data }) {
 
     setFileName(file.name);
     setFileSize(formattedSize);
-    setFileType(fileExt?.toUpperCase() || "");
+    setFileType(file.name.split(".").pop()?.toUpperCase() || "");
     setFormErrors({ ...formErrors, cv: undefined });
     setcvFile(e.target.files?.[0]);
 
@@ -184,6 +174,9 @@ export default function ApplyPage({ id, data }) {
 
       if (response.ok) {
         setShowSuccessModal(true);
+        toast.success(resulte.messgae, {
+          pauseOnHover: false,
+        });
       } else {
         toast.warn(resulte.messgae, {
           pauseOnHover: false,
@@ -265,7 +258,6 @@ export default function ApplyPage({ id, data }) {
                       type="file"
                       ref={fileInputRef}
                       onChange={handleFileChange}
-                      accept=".pdf,.doc,.docx"
                       className="sr-only"
                       required
                     />
@@ -274,10 +266,10 @@ export default function ApplyPage({ id, data }) {
                       className="border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 transition-colors">
                       <FaFileUpload className="h-10 w-10 text-gray-400 mb-3" />
                       <p className="text-sm font-medium text-gray-700">
-                        Click to upload your CV
+                        Click to upload your file
                       </p>
                       <p className="text-xs text-gray-500 mt-1">
-                        PDF, DOC, DOCX (Max. 5MB)
+                        Any file type (Max. 5MB)
                       </p>
                     </div>
                   </div>
