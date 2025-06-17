@@ -77,9 +77,9 @@ export default function resulteTable({ data, error }) {
                     <td
                       className={` py-4 whitespace-nowrap text-sm font-medium text-gray-900
                   ${
-                    application.internshipID ? null : "bg-red-200 text-center"
+                    application?.internshipID ? null : "bg-red-200 text-center"
                   }`}>
-                      {application.internshipID
+                      {application?.internshipID !== null
                         ? application?.internshipID?.title
                         : "تم حذف الفرصة التدريبة"}
                     </td>
