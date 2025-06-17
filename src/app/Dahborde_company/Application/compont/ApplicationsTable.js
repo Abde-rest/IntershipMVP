@@ -80,16 +80,16 @@ export default function resulteTable({ data, error }) {
                     application.internshipID ? null : "bg-red-200 text-center"
                   }`}>
                       {application.internshipID
-                        ? application.internshipID.title
+                        ? application?.internshipID?.title
                         : "تم حذف الفرصة التدريبة"}
                     </td>
                     <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {application.phone}
+                      {application?.phone}
                     </td>
                     <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-500">
                       <div className="relative group">
                         <a
-                          href={` https://docs.google.com/gview?url=${application.cvUrl.url}&embedded=true`}
+                          href={` https://docs.google.com/gview?url=${application?.cvUrl?.url}&embedded=true`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center justify-center p-2 rounded-full hover:bg-gray-100">
@@ -103,10 +103,10 @@ export default function resulteTable({ data, error }) {
                     </td>
                     <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-500">
                       <div className="flex space-x-2">
-                        {application.LinksSoch.linkedin && (
+                        {application?.LinksSoch?.linkedin && (
                           <div className="relative group">
                             <a
-                              href={application.LinksSoch?.linkedin}
+                              href={application?.LinksSoch?.linkedin}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center justify-center p-2 rounded-full hover:bg-gray-100">
@@ -118,10 +118,10 @@ export default function resulteTable({ data, error }) {
                             </div>
                           </div>
                         )}
-                        {application.LinksSoch.github && (
+                        {application?.LinksSoch?.github && (
                           <div className="relative group">
                             <a
-                              href={application.LinksSoch?.github}
+                              href={application?.LinksSoch?.github}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center justify-center p-2 rounded-full hover:bg-gray-100">
@@ -136,7 +136,7 @@ export default function resulteTable({ data, error }) {
                       </div>
                     </td>
                     <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {new Date(application.createdAt).toLocaleDateString(
+                      {new Date(application?.createdAt).toLocaleDateString(
                         undefined,
                         {
                           year: "numeric",
@@ -146,17 +146,17 @@ export default function resulteTable({ data, error }) {
                       )}
                     </td>
                     <td className="px-2 py-4 whitespace-nowrap text-sm">
-                      {application.status === "accepted" && (
+                      {application?.status === "accepted" && (
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                           Accepted
                         </span>
                       )}
-                      {application.status === "Rejected" && (
+                      {application?.status === "Rejected" && (
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                           Rejected
                         </span>
                       )}
-                      {application.status === "pending" && (
+                      {application?.status === "pending" && (
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                           Pending
                         </span>
@@ -164,13 +164,13 @@ export default function resulteTable({ data, error }) {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       <div className="flex space-x-2">
-                        {application.status === "pending" ? (
+                        {application?.status === "pending" ? (
                           <>
                             <Accept_Application
-                              idapplication={application._id}
+                              idapplication={application?._id}
                             />
                             <Reject_Application
-                              idapplication={application._id}
+                              idapplication={application?._id}
                             />
                           </>
                         ) : (
