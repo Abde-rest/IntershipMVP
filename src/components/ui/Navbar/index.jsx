@@ -61,7 +61,7 @@ const Navbar = async () => {
                 ) : (
                   <div className="flex items-center">
                     {" "}
-                    <NavLink
+                    {/* <NavLink
                       href={`${
                         user.role === "user"
                           ? "/Dahborde_user"
@@ -71,7 +71,7 @@ const Navbar = async () => {
 ">
                       Dahborde
                       <FaArrowRight />
-                    </NavLink>
+                    </NavLink> */}
                     <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex items-center gap-1">
                       <SinOutBtn />
                       <FaSignOutAlt size={20} />
