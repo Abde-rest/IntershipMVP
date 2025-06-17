@@ -397,7 +397,7 @@ const ContentExplore = () => {
                         </span>
                         <span className="ml-3 text-sm  text-gray-400">
                           {/* {internship.description} */}
-                          company That is That solution
+                          company For  solution
                         </span>
                       </div>
                     </div>

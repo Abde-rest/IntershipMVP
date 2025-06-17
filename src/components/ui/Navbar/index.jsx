@@ -72,7 +72,7 @@ const Navbar = async () => {
                       Dahborde
                       <FaArrowRight />
                     </NavLink> */}
-                    <li className="hover:bg-gray-100 py-2 w-full p-2 px-2 rounded flex items-center gap-1">
+                    <li className="hover:bg-gray-100 py-2 w-full  px-2  flex items-center gap-1 bg-red-400 rounded p-2 text-white hover:text-black  cursor-pointer transition-all">
                       <SinOutBtn />
                       <FaSignOutAlt size={20} />
                     </li>

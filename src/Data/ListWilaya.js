@@ -75,4 +75,8 @@ export const navigation = [
     title: "Testimonials",
     path: "/#testimonials",
   },
+  {
+    title: "Pricing",
+    path: "/pricing",
+  },
 ];

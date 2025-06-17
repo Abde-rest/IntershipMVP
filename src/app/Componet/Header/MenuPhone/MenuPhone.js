@@ -38,7 +38,7 @@ const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
             <li>
               {status === "authenticated" ? (
                 <>
-                  <NavLink
+                  {/* <NavLink
                     href={`${
                       user.role === "user"
                         ? "/Dahborde_user"
@@ -47,7 +47,7 @@ const MenuPhone = ({ setOpenMenu, OpenMenu }) => {
                     className="font-medium flex items-center gap-2 text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 ">
                     Dahborde
                     <FaArrowRight />
-                  </NavLink>
+                  </NavLink> */}
                   <div className="flex items-center justify-between gap-2 mt-2 w-full p-2  rounded-md bg-red-400  text-white">
                     <SinOutBtn />
                     <FaSignOutAlt size={20} />
