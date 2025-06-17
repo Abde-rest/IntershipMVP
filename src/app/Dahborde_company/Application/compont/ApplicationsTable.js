@@ -7,7 +7,96 @@ import Pdf from "@/app/Componet/Pdf/Pdf";
 import PDFDownload from "@/app/Componet/Pdf/PDFDownload";
 export default function resulteTable({ data, error }) {
   console.log("Data Application :");
-  console.log(data);
+  // console.log(data);
+  console.log("============");
+  console.log(data[0].user);
+  console.log("============");
+  // [
+  //   {
+  //     cvUrl: {
+  //       url: 'https://ucarecdn.com/4e84c9a3-2323-4c63-a18e-4556faeed8c6/',
+  //       uuid: '4e84c9a3-2323-4c63-a18e-4556faeed8c6'
+  //     },
+  //     LinksSoch: {
+  //       linkedin: 'https://www.linkedin.com/in/dummy-link-775982111/',
+  //       github: ''
+  //     },
+  //     _id: new ObjectId('681fc799954c1f9d4ec134ec'),
+  //     internshipID: {
+  //       _id: new ObjectId('681fc733954c1f9d4ec134df'),
+  //       title: 'Front end ',
+  //       description: 'fornt end ',
+  //       location: 'Ain el beel ',
+  //       mode: 'Remote',
+  //       field: 'Design',
+  //       duration: '2 اسبوع ',
+  //       companyID: new ObjectId('681fc6f8954c1f9d4ec134da'),
+  //       startDate: 2025-05-10T00:00:00.000Z,
+  //       endDate: 2025-05-10T00:00:00.000Z,
+  //       applicationDeadline: 2025-05-10T00:00:00.000Z,
+  //       Applicants: 1,
+  //       createdAt: 2025-05-10T21:37:55.893Z,
+  //       updatedAt: 2025-05-10T21:39:37.692Z,
+  //       __v: 0
+  //     },
+  //     user: {
+  //       _id: new ObjectId('681fc75b954c1f9d4ec134e5'),
+  //       Full_name: 'abdou',
+  //       email: 'abc@gmail.com'
+  //     },
+  //     companyId: {
+  //       _id: new ObjectId('681fc6f8954c1f9d4ec134da'),
+  //       company_name: 'DzCompany'
+  //     },
+  //     status: 'accepted',
+  //     phone: 213773430842,
+  //     createdAt: 2025-05-10T21:39:37.657Z,
+  //     updatedAt: 2025-05-10T21:40:45.747Z,
+  //     __v: 0
+  //   },
+  //   {
+  //     cvUrl: {
+  //       url: 'https://ucarecdn.com/4e4f4f19-ec30-4bbd-8989-75afba574f8d/',
+  //       uuid: '4e4f4f19-ec30-4bbd-8989-75afba574f8d'
+  //     },
+  //     LinksSoch: {
+  //       linkedin: 'https://www.linkedin.com/in/dummy-link-775982111/',
+  //       github: ''
+  //     },
+  //     _id: new ObjectId('684d17ab8f7e65c833c5c9c5'),
+  //     internshipID: {
+  //       _id: new ObjectId('684c9988592ee543bd956d2d'),
+  //       title: 'بق بقب قب',
+  //       description: 'هه',
+  //       location: 'DahbordeLayout',
+  //       mode: 'Remote',
+  //       field: 'Design',
+  //       duration: '3  اشهر ',
+  //       companyID: new ObjectId('681fc6f8954c1f9d4ec134da'),
+  //       startDate: 2025-06-13T00:00:00.000Z,
+  //       endDate: 2025-06-13T00:00:00.000Z,
+  //       applicationDeadline: 2025-06-13T00:00:00.000Z,
+  //       Applicants: 1,
+  //       createdAt: 2025-06-13T21:35:04.640Z,
+  //       updatedAt: 2025-06-14T06:33:15.497Z,
+  //       __v: 0
+  //     },
+  //     user: {
+  //       _id: new ObjectId('681fc75b954c1f9d4ec134e5'),
+  //       Full_name: 'abdou',
+  //       email: 'abc@gmail.com'
+  //     },
+  //     companyId: {
+  //       _id: new ObjectId('681fc6f8954c1f9d4ec134da'),
+  //       company_name: 'DzCompany'
+  //     },
+  //     status: 'pending',
+  //     phone: 213773430842,
+  //     createdAt: 2025-06-14T06:33:15.449Z,
+  //     updatedAt: 2025-06-14T06:33:15.449Z,
+  //     __v: 0
+  //   }
+  // ]
 
   return (
     <>
@@ -173,9 +262,10 @@ export default function resulteTable({ data, error }) {
                               idapplication={application?._id}
                             />
                           </>
-                        ) : (
-                          // "تم اتخاذ الاجراء "
+                        ) : application?.status === "accepted" ? (
                           <PDFDownload application={application} />
+                        ) : (
+                          <span className="text-gray-500">تم رفض الطلب</span>
                         )}
                       </div>
                     </td>

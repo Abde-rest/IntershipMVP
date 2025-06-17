@@ -22,7 +22,7 @@ export async function GET(req) {
     const data = await Application.find({ companyId: id })
       .populate({
         path: "user",
-        select: "Full_name",
+        select: "Full_name email",
       })
       .populate("internshipID")
       .populate({
